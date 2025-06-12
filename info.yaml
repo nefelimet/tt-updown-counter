@@ -31,7 +31,7 @@ pinout:
   ui[4]: "ld_cnt"
   ui[5]: "updn_cnt"
   ui[6]: "count_enb"
-  ui[7]: "clk"
+  ui[7]: ""
 
   # Outputs
   uo[0]: "data_out[0]"
