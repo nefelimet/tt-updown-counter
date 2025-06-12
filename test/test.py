@@ -43,15 +43,15 @@ async def test_project(dut):
     dut._log.info("Test project behavior")
 
     # Set the input values you want to test
-    data_in_port.value = [0,1,1]
+    data_in_port.value = 3
     ld_port.value = 0
 
     # Wait for one clock cycle to see the output values
     await ClockCycles(dut.clk, 1)
-    assert data_out_port.value == [0,1,1]
+    assert data_out_port.value == 3
     
-    data_in_port.value = [1,1,0]
+    data_in_port.value = 6
     await ClockCycles(dut.clk, 1)
-    assert data_out_port.value == [1,1,0]
+    assert data_out_port.value == 6
 
     
