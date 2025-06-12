@@ -16,7 +16,7 @@ module tt_um_nefelimet_updown_cntr (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-  updown_counter cntr(.data_in(ui_in[2:0]), .rst_(ui_in[3]), .ld_cnt(ui_in[4]), .updn_cnt(ui_in[5]), .count_enb(ui_in[6]), .clk(ui_in[7]), .data_out(uo_out[2:0])));
+  updown_counter cntr(.data_in(ui_in[2:0]), .rst_(ui_in[3]), .ld_cnt(ui_in[4]), .updn_cnt(ui_in[5]), .count_enb(ui_in[6]), .clk(ui_in[7]), .data_out(uo_out[2:0]));
     
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
