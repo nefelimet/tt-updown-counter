@@ -11,7 +11,6 @@ async def test_project(dut):
     dut._log.info("Start")
     
     # Pin mapping
-    clk_port = dut.ui_in[7]
     en_port = dut.ui_in[6]
     updn_port = dut.ui_in[5]
     ld_port = dut.ui_in[4]
@@ -28,7 +27,7 @@ async def test_project(dut):
     ]
 
     # Set the clock period to 20 ns (50 MHz)
-    clock = Clock(clk_port, 20, units="ns")
+    clock = Clock(dut.clk, 20, units="ns")
     cocotb.start_soon(clock.start())
 
     # Reset
@@ -37,9 +36,9 @@ async def test_project(dut):
     ld_port.value = 1
     updn_port.value = 0
     rst_port.value = 0
-    await ClockCycles(clk_port, 2)
+    await ClockCycles(dut.clk, 2)
     rst_port.value = 1
-    await ClockCycles(clk_port, 1)
+    await ClockCycles(dut.clk, 1)
     
     dut._log.info("Test project behavior")
 
@@ -48,11 +47,11 @@ async def test_project(dut):
     ld_port.value = 0
 
     # Wait for one clock cycle to see the output values
-    await ClockCycles(clk_port, 1)
+    await ClockCycles(dut.clk, 1)
     assert data_out_port.value == [0,1,1]
     
     data_in_port.value = [1,1,0]
-    await ClockCycles(clk_port, 1)
+    await ClockCycles(dut.clk, 1)
     assert data_out_port.value == [1,1,0]
 
     
