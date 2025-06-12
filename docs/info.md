@@ -9,12 +9,16 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+A 3-bit up/down counter with a rst signal, enable signal, load signal, and up/down signal.
+
+When the rst is low, the output is set to 0.
+When the load_cnt signal is low, the input data is assigned to the output.
+When count_enb is high, counting happens at every positive edge of the clock. updn_cnt controls whether the counter counts up or down.
 
 ## How to test
 
-Explain how to use your project
+Set signals and see waveforms accordingly.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+-
