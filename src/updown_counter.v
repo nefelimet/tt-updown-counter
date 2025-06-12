@@ -8,7 +8,7 @@ module updown_counter(
     output reg [2:0] data_out
 );
 
-always@(posedge clk or negedge rst_) begin
+always@(posedge clk) begin
 
     //If reset is active, data out is zero. Reset is active low.
 	if(!rst_) begin
