@@ -16,7 +16,7 @@ async def test_project(dut):
     ld_port = dut.ui_in[4]
     rst_port = dut.ui_in[3]
     data_in_port = [dut.ui_in[2], dut.ui_in[1], dut.ui_in[0]]
-    data_out_port = [dut.ui_out[2], dut.ui_out[1], dut.ui_out[0]]
+    data_out_port = [dut.uo_out[2], dut.uo_out[1], dut.uo_out[0]]
 
     # Set the clock period to 20 ns (50 MHz)
     clock = Clock(dut.clk, 20, units="ns")
