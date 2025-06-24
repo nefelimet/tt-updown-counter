@@ -30,7 +30,7 @@ async def test_project(dut):
     rst_port.value = 0
     await ClockCycles(dut.clk, 2)
     rst_port.value = 1
-    await ClockCycles(dut.clk, 1)
+    await ClockCycles(dut.clk, 2)
     
     dut._log.info("Test project behavior")
 
@@ -43,7 +43,7 @@ async def test_project(dut):
     ld_port.value = 0
 
     # Wait for one clock cycle to see the output values
-    await ClockCycles(dut.clk, 1)
+    await ClockCycles(dut.clk, 2)
     
     exp_value = (data_out_port[2].value << 2) | (data_out_port[1].value << 1) | data_out_port[0].value
     assert exp_value == 3
@@ -53,7 +53,7 @@ async def test_project(dut):
     data_in_port[1].value = (value >> 1) & 1
     data_in_port[2].value = (value >> 2) & 1
     
-    await ClockCycles(dut.clk, 1)
+    await ClockCycles(dut.clk, 2)
     
     exp_value = (data_out_port[2].value << 2) | (data_out_port[1].value << 1) | data_out_port[0].value
     assert exp_value == 6
